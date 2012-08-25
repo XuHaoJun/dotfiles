@@ -1,0 +1,293 @@
+// define_key(content_buffer_normal_keymap, "C-j", "single-buffer-goto");
+//adblockplus is good
+require("extensions/adblockplus.js");
+
+
+// let xkcd-mode put the funny alt text into the page.
+xkcd_add_title = true;
+
+
+
+
+// set default webjump
+read_url_handler_list = [read_url_make_default_webjump_handler("google")];
+// possibly valid URL
+function possibly_valid_url (str) {
+    return (/[\.\/:]/.test(str)) &&
+        !(/\S\s+\S/.test(str)) &&
+        !(/^\s*$/.test(str));
+}
+
+
+/* hint */
+// save a keystroke when selecting a dom node by number.
+hints_auto_exit_delay = 100;
+hints_ambiguous_auto_exit_delay = 2500;
+// colors
+hint_background_color = "cyan"
+img_hint_background_color = "cyan"
+active_hint_background_color = "#2f4f4f"
+active_img_hint_background_color = "#2f4f4f"
+// display properties of the current selected node during the hints interaction.
+hints_display_url_panel = true;
+// big hint number
+register_user_stylesheet(
+    "data:text/css," +
+	escape(
+	    "span.__conkeror_hint {" +
+		" font-size: 16px !important;" +
+		" line-height: 16px !important;" +
+		"}"));
+// hint's color
+register_user_stylesheet(
+    "data:text/css," +
+	escape (
+	    "span.__conkeror_hint {" +
+		" border: 1px solid #dddddd !important;" +
+		" color: white !important;" +
+		" background-color: black !important;" +
+		"}"));
+
+
+
+/* completion */
+// always use autocompletion in the minibuffer
+minibuffer_auto_complete_default = true;
+url_completion_use_bookmarks = false;
+url_completion_use_webjumps = true;
+url_completion_use_history = true;
+
+
+
+/* external editor */
+editor_shell_command = "emacsclient -c"; // use emacsclient as external editor.
+
+
+/* download */
+// default directory for downloads and shell commands.
+cwd = get_home_directory();
+cwd.append("tmp");
+// load download buffers in the background in the current window, instead of in new windows.
+download_buffer_automatic_open_target = OPEN_NEW_BUFFER_BACKGROUND;
+
+
+
+/* modeline */
+remove_hook("mode_line_hook", mode_line_adder(clock_widget));
+remove_hook("mode_line_hook", mode_line_adder(current_buffer_scroll_position_widget));
+add_hook("mode_line_hook", mode_line_adder(current_buffer_scroll_position_widget),true);
+add_hook("mode_line_hook", mode_line_adder(buffer_count_widget),true);
+add_hook("mode_line_hook", mode_line_adder(clock_widget), true);
+add_hook("mode_line_hook", mode_line_adder(loading_count_widget));
+register_user_stylesheet(
+    "data:text/css," +
+	escape(
+	    "@namespace url(\"http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul\");\n"+
+		".mode-line {\n"+
+		"    font-weight: bold;\n"+
+		"    color: #1e90ff;\n"+
+		"}"));
+
+// add favicons
+require("favicon");
+add_hook("mode_line_hook", mode_line_adder(buffer_icon_widget), true);
+read_buffer_show_icons = true;
+// show buffer count in modeline
+add_hook("mode_line_hook", mode_line_adder(buffer_count_widget), true);
+hints_display_url_panel = true;
+
+// add tab bar
+require("new-tabs.js");
+
+// /* noscript */
+// require("noscript.js");
+
+// /* adblockplus */
+require("adblockplus.js");
+
+// load session module
+require("session.js");
+session_auto_save_auto_load = true; // auto-load session
+
+/* cache */
+// cache_disable(CACHE_ALL);
+// cache_enable(CACHE_MEMORY);
+
+/* isearch */
+isearch_keep_selection = true; // keep the found item selected after search mode ends
+
+/* history */
+function clear_history () {
+    var history = Cc["@mozilla.org/browser/nav-history-service;1"]
+	.getService(Ci.nsIBrowserHistory);
+    history.removeAllPages();
+}
+// interactive("clear_history", "Clear the history.", clear_history);
+
+
+// page-mode
+require("page-modes/google-search-results.js"); // google search results
+require("page-modes/google-images.js"); // google-images mode
+require("page-modes/wikipedia.js");     // wikipedia mode
+
+/* cookie */
+// add_hook("quit_hook", clear_cookies);
+
+/* eye-guide */
+require('eye-guide.js');
+define_key(content_buffer_normal_keymap, "space", "eye-guide-scroll-down");
+define_key(content_buffer_normal_keymap, "back_space", "eye-guide-scroll-up");
+define_key(content_buffer_normal_keymap, "C-v", "eye-guide-scroll-down");
+define_key(content_buffer_normal_keymap, "M-v", "eye-guide-scroll-up");
+
+
+
+/* key */
+define_key(content_buffer_normal_keymap, "d", "follow-new-buffer-background");
+define_key(content_buffer_normal_keymap, "C-x C-m", "execute-extended-command");
+//  C-w equal M-b and C-h equal Backspace
+define_key(text_keymap, 'C-w', 'cmd_deleteWordBackward');
+define_key(text_keymap, "C-h", "cmd_deleteCharBackward");
+define_key(content_buffer_normal_keymap, "C-x C-u", "cmd_undo");
+require("global-overlay-keymap.js");
+define_key_alias("C-j", "return");
+
+/* zoom */
+function my_zoom_set (buffer) {
+    call_after_timeout(function () {
+	browser_zoom_set(buffer, false, 115);
+	browser_zoom_set(buffer, true, 130);
+    }, 0);
+}
+add_hook('create_buffer_hook', my_zoom_set);
+
+/* block-content-focus-change */
+require("block-content-focus-change.js");
+
+
+
+
+// 3.1. Bind Number Keys to Switch to Buffers 1-10
+function define_switch_buffer_key (key, buf_num) {
+    define_key(default_global_keymap, key,
+               function (I) {
+                   switch_to_buffer(I.window,
+                                    I.window.buffers.get_buffer(buf_num));
+               });
+}
+for (let i = 0; i < 10; ++i) {
+    define_switch_buffer_key(String((i+1)%10), i);
+}
+
+
+
+
+interactive("readability_arc90",
+            "Readability is a simple tool that makes reading on the web more enjoyable by removing the clutter around what you are reading",
+            function readability_arc90(I) {
+                var document = I.window.buffers.current.document;
+
+                var readConvertLinksToFootnotes = false;
+                var readStyle = 'style-apertura';
+                var readSize = 'size-large';
+                var readMargin = 'margin-narrow';
+
+                var _readability_readStyle = document.createElement('SCRIPT');
+                _readability_readStyle.text = 'var readStyle = \'' + readStyle + '\';';
+                document.getElementsByTagName('head')[0].appendChild(_readability_readStyle);
+
+                var _readability_readSize = document.createElement('SCRIPT');
+                _readability_readSize.text = 'var readSize = \'' + readSize + '\';';
+                document.getElementsByTagName('head')[0].appendChild(_readability_readSize);
+
+                var _readability_readMargin = document.createElement('SCRIPT');
+                _readability_readMargin.text = 'var readMargin = \'' + readMargin + '\';';
+                document.getElementsByTagName('head')[0].appendChild(_readability_readMargin);
+
+                var _readability_readConvertLinksToFootnotes = document.createElement('SCRIPT');
+                _readability_readConvertLinksToFootnotes.text = 'var readConvertLinksToFootnotes = ' + readConvertLinksToFootnotes + ';';
+                document.getElementsByTagName('head')[0].appendChild(_readability_readConvertLinksToFootnotes);
+
+                var _readability_script = document.createElement('script');
+                _readability_script.type='text/javascript';
+                _readability_script.src='http://lab.arc90.com/experiments/readability/js/readability.js?x='+(Math.random());
+                document.documentElement.appendChild(_readability_script);
+
+                var _readability_css = document.createElement('link');
+                _readability_css.rel = 'stylesheet';
+                _readability_css.href = 'http://lab.arc90.com/experiments/readability/css/readability.css';
+                _readability_css.type = 'text/css';
+                _readability_css.media = 'all';
+                document.documentElement.appendChild(_readability_css);
+
+                var _readability_print_css = document.createElement('link');
+                _readability_print_css.rel = 'stylesheet';
+                _readability_print_css.href = 'http://lab.arc90.com/experiments/readability/css/readability-print.css';
+                _readability_print_css.media = 'print';
+                _readability_print_css.type = 'text/css';
+                document.getElementsByTagName('head')[0].appendChild(_readability_print_css);
+            });
+
+define_key(content_buffer_normal_keymap, "z", "readability_arc90");
+
+
+
+
+// // Delayed session load
+// /*
+
+//   From http://retroj.net/git/conkerorrc/content-delay.js
+
+//   This script is a hack that provides delayed loading for content buffers.
+//   The initial url of a buffer will not be loaded until that buffer is
+//   switched to. Precaution is taken that the buffer's display_uri_string
+//   returns the delayed url, not about:blank, so things like tabs and sessions
+//   will still work properly.
+
+// */
+
+// function content_delay (spec) {
+//     this.delayed_load = spec;
+// }
+
+// function content_delay_init (b) {
+//     if (b != b.window.buffers.current &&
+//         b instanceof content_buffer)
+//     {
+//         b.load = content_delay;
+//         b.__defineGetter__("display_uri_string",
+// 			   function () {
+// 			       if (this.delayed_load) {
+// 				   if (this.delayed_load instanceof load_spec)
+// 				       return load_spec_uri_string(this.delayed_load);
+// 				   return this.delayed_load;
+// 			       }
+// 			       if (this._display_uri)
+// 				   return this._display_uri;
+// 			       if (this.current_uri)
+// 				   return this.current_uri.spec;
+// 			       return "";
+// 			   });
+//     }
+// }
+// function content_delay_do_initial_load (b) {
+//     if (b.hasOwnProperty("load")) {
+//         delete b.load;
+//         if (b.hasOwnProperty("delayed_load")) {
+//             b.load(b.delayed_load);
+//             delete b.delayed_load;
+//         }
+//     }
+// }
+// add_hook("create_buffer_early_hook", content_delay_init);
+// add_hook("select_buffer_hook", content_delay_do_initial_load);
+// // end Delayed
+
+// //Reload all buffers in the current window                                                                        
+// interactive("reload-all", "Reload all buffers in the current window",                                             
+//             function (I) {I.window.buffers.for_each(function (b) {reload(b, I.P);})}                              
+//            );
+// define_key(content_buffer_normal_keymap, "R", "reload-all");
+
+/* noscript */
+require("noscript.js");

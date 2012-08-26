@@ -14,7 +14,7 @@ hi Hint font:bold 15px "Droid Sans Mono", monospace !important; margin:-.2ex; pa
 "set editor="urxvt -e vim"
 ""開啟時順便定位
 set editor='urxvt -e vim -f -c ":set ft=bbcode" -c ":call cursor(<line>, <column>)" <file>'
-set go+=n
+set guioptions+=n
 "set go=rbC
 set hintkeys="asdfjkl;"
 "set stal=never

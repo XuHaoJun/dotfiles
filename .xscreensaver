@@ -1,8 +1,8 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.17 for z4615 on Sat Jul  7 11:44:01 2012.
+# Written by xscreensaver-demo 5.19 for z4615 on Mon Aug 27 15:37:42 2012.
 # http://www.jwz.org/xscreensaver/
 
-timeout:	0:10:00
+timeout:	0:20:00
 cycle:		0:10:00
 lock:		True
 lockTimeout:	0:01:00
@@ -34,8 +34,8 @@ grabVideoFrames:    False
 chooseRandomImages: False
 imageDirectory:	
 
-mode:		one
-selected:	142
+mode:		blank
+selected:	78
 
 textMode:	file
 textLiteral:	XScreenSaver

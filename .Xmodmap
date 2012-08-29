@@ -1,18 +1,5 @@
-! pointer = 1 2 3 4 5 6 7 8 9 10 11 12
+pointer = 1 2 3 4 5 6 7 8 9 10 11 12
 
-
-
-!
-! Swap Caps_Lock and Control_L
-!
-! remove Lock = Caps_Lock
-! remove Control = Control_L
-! keysym Control_L = Caps_Lock
-! keysym Caps_Lock = Control_L
-! add Lock = Caps_Lock
-! add Control = Control_L
-
-!
 ! Swap Caps_Lock and Escape
 !
 remove Lock = Caps_Lock
@@ -26,16 +13,8 @@ add Control = Control_L
 ! add Control = Escape
 
 
-
+! for thinkpad x230i
 !
-! Swap Caps_Lock and Escape
-! remove Lock = Caps_Lock
-! remove Control = Escape
-! keysym Escape = Caps_Lock
-! keysym Caps_Lock = Escape
-! add Lock = Caps_Lock
-! add Control = Escape
-
-
-
-
+!! print key to Super(window)
+keycode 105 = 
+add mod4 = Print 

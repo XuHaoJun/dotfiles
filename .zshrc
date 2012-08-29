@@ -56,7 +56,7 @@ FINISH="%{$terminfo[sgr0]%}"
 #命令提示符 {{{
 #RPROMPT=$(echo "$RED%D %T$FINISH")
 PROMPT=$(echo "  $BLUE%/ 
-$CYAN%n $_YELLOW>>>$FINISH ")
+${RED}${EXITCODE} $CYAN%n $_YELLOW>>>$FINISH ")
 #}}}
     
 #标题栏、任务栏样式{{{

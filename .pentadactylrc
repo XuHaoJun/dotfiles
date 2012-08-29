@@ -1,3 +1,4 @@
+" au PageLoadPre http|https zoom 120
 " only consider case if an upper case char is used
 set findcase=smart
 " useful for command-line completion

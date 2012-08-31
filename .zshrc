@@ -61,8 +61,10 @@ ${RED}${EXITCODE} $CYAN%n $_YELLOW>>>$FINISH ")
     
 #标题栏、任务栏样式{{{
 case $TERM in (*rxvt*|*xterm*|(dt|k|E)term)
-   precmd () { print -Pn "\e]0;%n@%M//%/\a" }
-   preexec () { print -Pn "\e]0;%n@%M//%/\ $1\a" }
+   #precmd () { print -Pn "\e]0;%n@%M//%/\a" }
+   #preexec () { print -Pn "\e]0;%n@%M//%/\ $1\a" }
+   precmd () { print -Pn "\e]0;%/\a" }
+   preexec () { print -Pn "\e]0;%/\ $1\a" }
    ;;
 esac
 #}}}

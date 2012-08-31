@@ -166,7 +166,7 @@ for s = 1, screen.count() do
 
     -- Create the wibox
     --mywibox[s] = awful.wibox({ position = "top", screen = s })
-    mywibox[s] = awful.wibox({ position = "top", height = "26", screen = s })
+    mywibox[s] = awful.wibox({ position = "top", height = "28", screen = s })
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {

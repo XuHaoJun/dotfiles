@@ -43,6 +43,10 @@ if [ -f $HOME/.Xresources ]; then
     /usr/bin/xrdb $HOME/.Xresources
 fi
 
+if [ -f $HOME/.xbindkeysrc ]; then
+    /usr/bin/xbindkeys -f $HOME/.xbindkeysrc
+fi
+
 # exec gnome-session
 # exec startkde
 # exec startxfce4

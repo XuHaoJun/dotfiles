@@ -6,8 +6,8 @@
 !设置字体分辨率
 Xft.dpi:96
 !URxvt.font:-misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1,xft:WenQuanYi Bitmap Song:size=10 
-URxvt.font:xft:文泉驿等宽正黑:size=10:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=9:style=Regular:antialias=true
-URxvt.boldfont:xft:文泉驿等宽正黑:size=10:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=9:style=Bold:antialias=true
+URxvt.font:xft:文泉驿等宽正黑:size=11:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=9:style=Regular:antialias=true
+URxvt.boldfont:xft:文泉驿等宽正黑:size=11:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=9:style=Bold:antialias=true
 
 !!滚动条
 !

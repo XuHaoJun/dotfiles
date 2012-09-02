@@ -1,11 +1,11 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.19 for z4615 on Mon Aug 27 15:37:42 2012.
+# Written by xscreensaver-demo 5.19 for z4615 on Sun Sep  2 21:30:08 2012.
 # http://www.jwz.org/xscreensaver/
 
-timeout:	0:20:00
+timeout:	0:30:00
 cycle:		0:10:00
 lock:		True
-lockTimeout:	0:01:00
+lockTimeout:	0:00:00
 passwdTimeout:	0:00:30
 visualID:	default
 installColormap:    True
@@ -24,12 +24,12 @@ fadeTicks:	20
 captureStderr:	True
 ignoreUninstalledPrograms:False
 font:		*-medium-r-*-140-*-m-*
-dpmsEnabled:	False
-dpmsQuickOff:	False
+dpmsEnabled:	True
+dpmsQuickOff:	True
 dpmsStandby:	2:00:00
 dpmsSuspend:	2:00:00
 dpmsOff:	4:00:00
-grabDesktopImages:  True
+grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
 imageDirectory:	

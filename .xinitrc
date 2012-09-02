@@ -15,8 +15,8 @@ fi
 export BROWSER=firefox #or any brower of your choice
 
 # #Loacle
-export LANG=zh_TW.Big5
-export LANG=zh_TW.utf8
+#export LANG=zh_TW.Big5
+#export LANG=zh_TW.utf8
 export LC_CTYPE=zh_TW.Big5
 export MM_CHARSET=big5 
 
@@ -54,7 +54,6 @@ fi
 
 # custom
 #exec ck-launch-session dbus-launch -exit-with-session awesome
-xscreensaver -no-splash &
 exec ck-launch-session dbus-launch awesome
 #exec awesome
 #### end my settings

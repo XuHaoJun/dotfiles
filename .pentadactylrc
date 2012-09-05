@@ -56,21 +56,21 @@ group -locations groups.google.com customHintGoogleGroups
 nmap -builtin f ;test1
 group user
 
-"" display tabgroup title on statusline
-js <<EOF
-overlay.overlayObject(statusline, {
-    updateTabCount: function updateTabCount(delayed) {
-        let title;
-        tabs.getGroups( function ({ GroupItems }) {
-            activeGroup = GroupItems.getActiveGroupItem();
-            title = (activeGroup.getTitle() === "")?
-                "" + activeGroup.id : activeGroup.getTitle();
-        });
-        updateTabCount.superapply(this, arguments);
-        if (!delayed) this.widgets.tabcount.value = "(" + title + ")" + this.widgets.tabcount.value;
-    }
-});
-EOF
+""" display tabgroup title on statusline
+"js <<EOF
+"overlay.overlayObject(statusline, {
+"    updateTabCount: function updateTabCount(delayed) {
+"        let title;
+"        tabs.getGroups( function ({ GroupItems }) {
+"            activeGroup = GroupItems.getActiveGroupItem();
+"            title = (activeGroup.getTitle() === "")?
+"                "" + activeGroup.id : activeGroup.getTitle();
+"        });
+"        updateTabCount.superapply(this, arguments);
+"        if (!delayed) this.widgets.tabcount.value = "(" + title + ")" + this.widgets.tabcount.value;
+"    }
+"});
+"EOF
 
 
 """""""""""""
@@ -84,7 +84,8 @@ map -s -m n -b J <C-d>
 map -s -m n -b K <C-u>
 "map -modes=normal -silent j 4<scroll-down-line>
 map -modes=normal -b -s j 4j
-map -modes=normal -silent k 4<scroll-up-line>
+map -modes=normal -b -s k 4k
+"map -modes=normal -silent k 4<scroll-up-line>
 "map -modes=normal -b -s G 999j
 "map -modes=normal -silent gg 999<scroll-up-line>
 

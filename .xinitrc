@@ -54,6 +54,6 @@ fi
 
 # custom
 #exec ck-launch-session dbus-launch -exit-with-session awesome
-exec ck-launch-session dbus-launch awesome
-#exec awesome
+#exec ck-launch-session dbus-launch awesome
+exec awesome
 #### end my settings

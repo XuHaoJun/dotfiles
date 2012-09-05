@@ -330,6 +330,15 @@ arith-eval-echo() {
 }
 zle -N arith-eval-echo
 bindkey "^[[11~" arith-eval-echo
+
+#{{{ F2 call
+arith-eval-call() {
+  LBUFFER="${LBUFFER}\$("
+  RBUFFER=")$RBUFFER"
+}
+zle -N arith-eval-call
+bindkey "^[[12~" arith-eval-call
+#
 #}}}
 
 ####{{{

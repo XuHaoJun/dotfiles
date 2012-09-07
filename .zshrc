@@ -10,9 +10,12 @@ export EDITOR="vim"
 ## add highlighting for zsh; from AUR
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-## zsh允许你仅仅敲入你要进入的文件夹的路径,而不用输入cd
+## Options
 #setopt autocd
+# zsh允许你仅仅敲入你要进入的文件夹的路径,而不用输入cd
 setopt CORRECT
+# add new features for zsh globs
+setopt extendedglob
 
 ## start from EMACS
 if [ -n "$INSIDE_EMACS" ]; then

@@ -1,4 +1,7 @@
 
+"" Hide statusbar when using html5 fullscreen API
+au fullscreen on  set go-=s
+au fullscreen off set go+=s
 "" only consider case if an upper case char is used
 set findcase=smart
 "" useful for command-line completion

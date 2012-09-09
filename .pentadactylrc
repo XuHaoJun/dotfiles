@@ -1,38 +1,37 @@
-" au PageLoadPre http|https zoom 120
-" only consider case if an upper case char is used
+
+"" only consider case if an upper case char is used
 set findcase=smart
-" useful for command-line completion
-" don't show autocomplete list until <Tab>
+"" useful for command-line completion
+"" don't show autocomplete list until <Tab>
 set autocomplete=
 set hintmatching=wordstartswith
 set wildmode=list:longest,full
 
-"set visualbell
-"m{a-z,0-9}自动重建空白的记录文件。
+""m{a-z,0-9}自动重建空白的记录文件。
 set sanitizeshutdown+=marks 
-"hint數字變大
+""hint數字變大
 hi Hint font:bold 15px "Droid Sans Mono", monospace !important; margin:-.2ex; padding: 0 0 0 1px; outline:1px solid rgba(0, 0, 0, .5); background:rgba(255, 248, 231, .8); color:black; text-transform:uppercase;
-"set editor="urxvt -e vim"
 ""開啟時順便定位
+"set editor="urxvt -e vim"
 set editor='urxvt -e vim -f -c ":set ft=bbcode" -c ":call cursor(<line>, <column>)" <file>'
 set guioptions=Csn
-"set go=rbC
+"" Hint mode
 set hintkeys="asdfjkl;"
 "set stal=never
 "set stal=always
 set titlestring=
 
-"[[與]]辨識中文
+""[[與]]辨識中文
 set previouspattern='(上|前)一?頁','上一页','前一页','\bprev|previous\b',^<$,'^(<<|«)$','^(<|«)','(<|«)$'
 set nextpattern='(下|後)一?頁','下一页','后页','\bnext\b',^>$,'^(>>|»)$','^(>|»)','(>|»)$','\bmore\b','下一题'
 
 autocmd LocationChange (www|mail)\.google\.com/(reader|mail) -js modes.set(modes.PASS_THROUGH)
 
-" gmail問題
+"" gmail問題
 style chrome://*#dactyl-commandline-command input {ime-mode: inactive;}
 style chrome://*#dactyl-statusline-field-commandline-command input {ime-mode: inactive;}
 
-" {{{ PassKeys
+"" {{{ PassKeys
     set passkeys+='duckduckgo.com':jkhvrsm!/<C-Enter>
     set passkeys+='facebook.com':<CR>
     set passkeys+='twitter.com':jk<Space>/.frtmn?ghrpu<Return>
@@ -79,25 +78,17 @@ group user
 "F2縮放menu bar
 map -modes=n,v <F2> -ex set go!=mT 
 
-"JK為tab切換, jk增加前繓7
+"" JK為tab切換, jk增加前繓7
 map -s -m n -b J <C-d>
 map -s -m n -b K <C-u>
-"map -modes=normal -silent j 4<scroll-down-line>
 map -modes=normal -b -s j 4j
 map -modes=normal -b -s k 4k
-"map -modes=normal -silent k 4<scroll-up-line>
-"map -modes=normal -b -s G 999j
-"map -modes=normal -silent gg 999<scroll-up-line>
 
+"" 左右控制tab
 map -b -modes=normal h gT
 map -b -modes=normal l <C-n>
 
-" 默认的设定为: y复制当前页的url到剪贴板;Y复制选中文字到剪贴板。
-"map -modes=n y -builtin Y
-"map -modes=n Y -builtin y
-
-" Emacs配置
-
+"" Emacs配置
 map -m n -b <C-f> h
 map -m n -b <C-b> l
 
@@ -111,12 +102,12 @@ map -b -m c,i -s <C-x><C-u> <C-v><C-z>
 
 map -b -m c,i <A-d> <C-Del>
 
-"複製與貼上
+""複製與貼上
 map -b -m c,i <C-y> <S-Ins>
 map -b -m c,i <C-x><C-k> <C-v><C-x>
 map -b -m c,i <A-w> <C-v><C-c>
 
-" 選buffer時取代tab
+"" 選buffer時取代tab
 map -b -m c <C-n> <Tab>
 map -b -m c <C-p> <S-Tab>
 
@@ -140,41 +131,3 @@ map -b -m i,c -s <A-b> <C-Left>
 map -b <C-x>h <C-z><C-a><Esc>
 imap -b <C-x>h <C-z><C-a><Esc>
 "inoremap <C-x>h <C-z><C-a><Esc>
-
-
-
-""" when follow link, switch to buffer if found or open it
-":js <<EOF
-"var switchOrOpen = function (url) {
-"    if (buffer.URL.spec === url) return false;
-"    if (url.indexOf("#", url.length - 1) !== -1) return false;
-"    if (url.indexOf("http://") !==0 && url.indexOf("https://") !==0 && url.indexOf("about:") !== 0) return false;
-"    var matches = array.nth(tabs.allTabs, function (t)(t.linkedBrowser.lastURI || {}).spec === url, 0);
-"    if (matches) {
-"        tabs.select(matches, false);
-"        return true;
-"    } else {
-"        return false;
-"    }
-"};
-"var fakeDomain = function (str) {
-"    var m = str.match(/^(?:[^.:\/ ]+\.)+([A-Za-z]+)$/);
-"    return (m && !m[1].match(/^(?:com|net|org|name|edu|gov|au|tw|cz|cn|us|me|info|co|jp|ly|gd|gl)$/));
-"};
-"overlay.overlayObject(dactyl, {
-"    open: function open(urls, params, force) {
-"        if (typeof urls === "string") {
-"            if (switchOrOpen(urls)) return;
-"            if (fakeDomain(urls)) arguments[0] = options["defsearch"] + " " + arguments[0];
-"        }
-"        open.superapply(this, arguments);
-"    }
-"});
-"document.addEventListener('click', function (event) {
-"    let e = event.target;
-"    if (e && event.which < 3 && e.tagName.match(/^a$/i) && e.href && switchOrOpen(e.href)) {
-"        event.preventDefault();
-"        event.stopPropagation();
-"    }
-"}, true);
-"EOF

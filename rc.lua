@@ -409,7 +409,8 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- {{{ my-setting
     -- normal
-awful.util.spawn_with_shell("xcompmgr -Ss -n -Cc -fF -I-10 -O-10 -D1 -t-3 -l-4 -r4 &")
+awful.util.spawn_with_shell("xcompmgr -Cc &")
+--awful.util.spawn_with_shell("xcompmgr -Ss -n -Cc -fF -I-10 -O-10 -D1 -t-3 -l-4 -r4 &")
 awful.util.spawn_with_shell("wicd-client --tray &")
 awful.util.spawn_with_shell("(sleep 20 && dropboxd) &")
 awful.util.spawn_with_shell("xscreensaver -no-splash &")

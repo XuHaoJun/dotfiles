@@ -414,6 +414,8 @@ awful.util.spawn_with_shell("wicd-client --tray &")
 awful.util.spawn_with_shell("(sleep 20 && dropboxd) &")
 awful.util.spawn_with_shell("xscreensaver -no-splash &")
 awful.util.spawn_with_shell("loliclip --daemon &")
+awful.util.spawn_with_shell("hset -solid "#000000" &")
+
     -- laptop
 awful.util.spawn_with_shell("batterymon &")
 -- }}}

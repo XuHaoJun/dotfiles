@@ -36,6 +36,7 @@ alias df='df -h'
 #alias emacs='LC_CTYPE=zh_CN.UTF-8 emacs'
 alias emacs='emacs --no-desktop -nw'
 alias rename='perl-rename'
+alias dstat='dstat -cdlmnpsy'
 #alias man='pinfo -m'
 
 # -- }}}

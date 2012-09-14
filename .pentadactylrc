@@ -1,9 +1,10 @@
-
 "" Hide statusbar when using html5 fullscreen API
 au fullscreen on  set go-=s
 au fullscreen off set go+=s
+
 "" only consider case if an upper case char is used
 set findcase=smart
+
 "" useful for command-line completion
 "" don't show autocomplete list until <Tab>
 set autocomplete=
@@ -57,23 +58,6 @@ nmap -builtin F g;test2
 group -locations groups.google.com customHintGoogleGroups
 nmap -builtin f ;test1
 group user
-
-""" display tabgroup title on statusline
-"js <<EOF
-"overlay.overlayObject(statusline, {
-"    updateTabCount: function updateTabCount(delayed) {
-"        let title;
-"        tabs.getGroups( function ({ GroupItems }) {
-"            activeGroup = GroupItems.getActiveGroupItem();
-"            title = (activeGroup.getTitle() === "")?
-"                "" + activeGroup.id : activeGroup.getTitle();
-"        });
-"        updateTabCount.superapply(this, arguments);
-"        if (!delayed) this.widgets.tabcount.value = "(" + title + ")" + this.widgets.tabcount.value;
-"    }
-"});
-"EOF
-
 
 """""""""""""
 "Keymappings"

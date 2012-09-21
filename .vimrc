@@ -24,6 +24,7 @@ set ts=4
 set sw=4
 set smarttab
 set is
+set smartindent
 
 " ack instead of grep
 set grepprg=ack 

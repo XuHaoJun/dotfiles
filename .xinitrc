@@ -14,15 +14,6 @@ fi
 #### start my settings
 export BROWSER=firefox #or any brower of your choice
 
-# #Loacle
-#export LANG=zh_TW.Big5
-#export LANG=zh_TW.utf8
-#export LC_CTYPE=zh_TW.Big5
-#export MM_CHARSET=big5 
-
-# export LANG=zh_CN.UTF-8
-# export LC_ALL="zh_TW.zh_CN.UTF-8"
-
 #IBUS
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus

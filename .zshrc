@@ -11,8 +11,9 @@ export EDITOR="vim"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## Options
-#setopt autocd
 # zsh允许你仅仅敲入你要进入的文件夹的路径,而不用输入cd
+#setopt autocd
+# ask question when may be type error
 setopt CORRECT
 # add new features for zsh globs
 setopt extendedglob

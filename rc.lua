@@ -282,7 +282,7 @@ globalkeys = awful.util.table.join(
            local tag = awful.tag.selected()
                for i=1, #tag:clients() do
                    tag:clients()[i].minimized=false
-                   tag:clients()[i]:redraw()
+                   --tag:clients()[i]:redraw()
            end
     end)	  
 )

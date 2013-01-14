@@ -461,5 +461,5 @@ awful.util.spawn_with_shell("xscreensaver -no-splash &")
 awful.util.spawn_with_shell("loliclip --daemon &")
 
     -- laptop
-awful.util.spawn_with_shell("batterymon &")
+awful.util.spawn_with_shell("batti &")
 -- }}}

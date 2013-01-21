@@ -38,9 +38,9 @@ URxvt.cursorBlink:True
 
 ! open url 
 !
-URxvt.urlLauncher: firefox
-URxvt.matcher.button: 1
-URxvt.perl-ext-common: matcher
+URxvt.perl-ext-common:  default,matcher
+URxvt.url-launcher:      /usr/bin/firefox 
+URxvt.matcher.button:   1
 
 !颜色
 !

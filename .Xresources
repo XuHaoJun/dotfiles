@@ -9,6 +9,10 @@ Xft.dpi:96
 URxvt.font:xft:文泉驿等宽正黑:size=10:style=Regular:antialias=true,xft:文泉驿等宽正黑:size=9:style=Regular:antialias=true
 URxvt.boldfont:xft:文泉驿等宽正黑:size=10:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=9:style=Bold:antialias=true
 
+!! Set icon
+URxvt.iconFile:/usr/share/icons/gnome/22x22/apps/terminal.png
+
+
 !!滚动条
 !
 !Rxvt.scrollTtyOutput:True

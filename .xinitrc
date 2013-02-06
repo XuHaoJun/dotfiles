@@ -12,18 +12,18 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
 fi
 
 #### start my settings
-export BROWSER=firefox #or any brower of your choice
+export BROWSER=firefox
 
 #IBUS
-export GTK_IM_MODULE=ibus
-export XMODIFIERS=@im=ibus
-export QT_IM_MODULE=ibus
-export GTK_MODULE=ibus
-export QT_MODULE=ibus
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
+export GTK_MODULE=fcitx
+export QT_MODULE=fcitx
 export G_FILENAME_ENCODING=@utf8
-export XIM_PROGRAM="ibus-daemon -d -x"
+#export XIM_PROGRAM="fcitxn"
 export LC_CTYPE="zh_TW.utf8"
-ibus-daemon -d -x
+fcitx&
 
 
 if [ -f $HOME/.Xmodmap ]; then

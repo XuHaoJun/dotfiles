@@ -32,9 +32,10 @@ Rxvt.transparency:255
 
 !输入法设置
 !
-URxvt.inputMethod:ibus
+URxvt.inputMethod:fcitx
 !輸入法樣式可選:Root(置底) OverTheSpot(跟隨)
 URxvt.codeeditType:OverTheSpot
+URxvt.preeditType: OverTheSpot
 
 !光标闪烁
 !

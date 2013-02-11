@@ -35,7 +35,7 @@ Rxvt.transparency:255
 URxvt.inputMethod:fcitx
 !輸入法樣式可選:Root(置底) OverTheSpot(跟隨)
 URxvt.codeeditType:OverTheSpot
-URxvt.preeditType: OverTheSpot
+!URxvt.preeditType: OverTheSpot
 
 !光标闪烁
 !

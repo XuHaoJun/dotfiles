@@ -1,6 +1,18 @@
 #!/bin/zsh
 
-cp -av ./{.emacs,.pentadactylrc,.vimrc,.xinitrc,.Xmodmap,.Xresources,.xscreensaver,.xsession,.zshrc,.tmux.conf,.gitconfig,.xbindkeysrc} $HOME
+REPEATED_FILES=$(basename -a .* ${HOME}/.* | sort | uniq -d)
+REPEATED_FILE_COUNT=$(basename -a .* ${HOME}/.* | sort | uniq -d | wc -l)
 
-## copy to dir if not have dir then mkdir and copy. 
-cp -av rc.lua $HOME/.config/awesome/ ||  (mkdir -p $HOME/.config/awesome && cp -av rc.lua $HOME/.config/awesome) 
+if [ "$REPEATED_FILE_COUNT" != 0 ];then
+		echo "----The repeated file list----"
+		echo $REPEATED_FILES
+		echo "----End of repeated file list----"
+
+		echo "Your HOME dir have repeated file. Do you overwrite it?(y/n)"
+		read response
+		echo
+		if [[ $response =~ ^[Yy]$ ]]; then
+				rsync --exclude ".git/" --exclude "*~" -av .* $HOME
+		fi
+fi
+

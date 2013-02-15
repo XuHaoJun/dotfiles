@@ -1,5 +1,5 @@
  "不要vim模仿vi模式，建议设置，否则会有很多不兼容的问题
-"set nocompatible
+set nocompatible
 
 if has("autocmd")
     filetype plugin indent on "根据文件进行缩进
@@ -17,14 +17,14 @@ else
 endif " has("autocmd")
 
 au GUIEnter * simalt ~x
-
+"
 set tabstop=4 "让一个tab等于4个空格
-set et
-set ts=4
-set sw=4
+"set et
+"set ts=4
+"set sw=4
 set smarttab
 set is
-set smartindent
+"set smartindent
 
 " ack instead of grep
 set grepprg=ack 
@@ -36,7 +36,7 @@ syntax on
 set nu
 set wildmenu "tab補全顯示菜單
 set vb t_vb=
-set nowrap "不自动换行
+"set nowrap "不自动换行
 " set hlsearch "高亮显示结果
 set showmode
 set nocompatible

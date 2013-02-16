@@ -454,11 +454,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- {{{ my-setting
 -- normal
-awful.util.spawn_with_shell("compton -CGb --shadow-exclude 'n:e:URxvt' \
---shadow-exclude 'g:si:Notification' \
---shadow-exclude 'n:w:*Firefox*' \
---shadow-exclude 'i:wi:navigator' \
---shadow-exclude 'n:pi:( - )?Mozilla Firefox$'")
+awful.util.spawn_with_shell("unagi &")
 awful.util.spawn_with_shell("wicd-client --tray &")
 awful.util.spawn_with_shell("(sleep 20 && dropboxd) &")
 awful.util.spawn_with_shell("xscreensaver -no-splash &")

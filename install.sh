@@ -17,3 +17,4 @@ if [ "$REPEATED_FILE_COUNT" != 0 ];then
 		fi
 fi
 
+exit 0

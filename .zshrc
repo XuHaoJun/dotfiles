@@ -1,6 +1,11 @@
 # -- {{{ my settings
 #
 
+if [[ -d /opt/android-sdk/ ]]; then
+    PATH="/opt/android-sdk:$PATH"
+fi
+
+
 ## var export
 # for tmux: export 256color
 [ -n "$TMUX" ] && export TERM=screen-256color

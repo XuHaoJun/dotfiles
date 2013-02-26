@@ -7,8 +7,8 @@ set ruler
 set backspace=indent,eol,start whichwrap+=<,>,[,] "允许退格键的使用
 set nocompatible "不要vim模仿vi模式，建议设置，否则会有很多不兼容的问题
 
-" searching
-set hlsearch            " highlight all search results
+"" searching
+"set hlsearch            " highlight all search results
 set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " uppercase causes case-sensitive search

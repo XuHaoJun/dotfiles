@@ -2,7 +2,7 @@
 #
 
 if [[ -d /opt/android-sdk/ ]]; then
-    PATH="/opt/android-sdk:$PATH"
+    PATH="$PATH:/opt/android-sdk"
 fi
 
 

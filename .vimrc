@@ -1,31 +1,48 @@
-set nu
-set wildmenu "tab補全顯示菜單
-set vb t_vb=
-set showmode
-set nocompatible
-set ruler
-set backspace=indent,eol,start whichwrap+=<,>,[,] "允许退格键的使用
-set nocompatible "不要vim模仿vi模式，建议设置，否则会有很多不兼容的问题
+""" --- Base setting --- {{{
 
-"" searching
-"set hlsearch            " highlight all search results
+"" Normal stuff
+set number        " line number
+set showmode      " show mode in status line
+set wildmenu      " use tab show menu
+set ruler         " show some info at status line
+set nocompatible  " no vi with vim
+set nobackup      
+syntax on
+colorscheme desertEx
+
+"" Searching
 set incsearch           " increment search
+set hlsearch            " highlight search
 set ignorecase          " case-insensitive search
 set smartcase           " uppercase causes case-sensitive search
 
-" tab
-set tabstop=4 "让一个tab等于4个空格
-"set et
-"set ts=4
-"set sw=4
-set smarttab
-set is
-"set smartindent
+"" Tab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set smarttab " insert tab when 
 
-" ack instead of grep
-set grepprg=ack 
-set grepformat=%f:%l:%c:%m
+"" Indent
+set autoindent
+set smartindent
+filetype plugin indent on
 
+"" Mouse
+set mouse=a " for select something,but it will move cursor
+
+"" Key binding
+" Clean hlsearch
+nnoremap <F2> :noh<CR> 
+
+""" --- End of Base setting --- }}}
+
+""" --- Plugin --- {{{
+
+""" --- End of Plugin --- }}}
+
+""" --- Test --- {{{
+
+"" other indent
 if has("autocmd")
     filetype plugin indent on "根据文件进行缩进
     augroup vimrcEx
@@ -41,12 +58,4 @@ else
     set autoindent " always set autoindenting on 
 endif " has("autocmd")
 
-au GUIEnter * simalt ~x
-
-colorscheme desert
-syntax on
-
-let Tlist_Show_One_File=1
-let Tlist_Exit_OnlyWindow=1
-let g:winManagerWindowLayout='FileExplorer|TagList'
-"nmap wm :WMToggle<cr>
+""" --- End of Test --- }}}

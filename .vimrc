@@ -3,40 +3,79 @@
 "" Normal stuff
 set number        " line number
 set showmode      " show mode in status line
-set wildmenu      " use tab show menu
 set ruler         " show some info at status line
 set nocompatible  " no vi with vim
-set nobackup      
+
+"" Color
 syntax on
 colorscheme desertEx
+set t_Co=256
 
 "" Searching
-set incsearch           " increment search
-set hlsearch            " highlight search
-set ignorecase          " case-insensitive search
-set smartcase           " uppercase causes case-sensitive search
+set incsearch     " increment search
+set hlsearch      " highlight search
+set ignorecase    " case-insensitive search
+set smartcase     " uppercase causes case-sensitive search
 
 "" Tab
+set expandtab
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
-set smarttab " insert tab when 
+set smarttab
+
+"" Completion
+set wildmenu                               " use tab show menu
+" ignore it when select menu
+set wildignore=*.o,*.jpg,*.png,*.gif,*.pdf
+" list all matches and complete first match
+set wildmode=list:full
 
 "" Indent
 set autoindent
 set smartindent
+
+"" Backups
+set nobackup
+set noswapfile
+
+"" Encoding
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf-8
+set fileformats=unix,dos,mac
+
+"" File Type
+filetype on
 filetype plugin indent on
 
 "" Mouse
 set mouse=a " for select something,but it will move cursor
 
 "" Key binding
-" Clean hlsearch
-nnoremap <F2> :noh<CR> 
+" yank to the end of line
+nnoremap Y y$
+" clean hlsearch
+nnoremap <F3> :nohlsearch<CR> 
+" emacs Key binding
+imap <C-b> <Left>
+imap <C-f> <Right>
+imap <C-a> <Home>
+imap <C-e> <End>
 
 """ --- End of Base setting --- }}}
 
 """ --- Plugin --- {{{
+"" Taglist
+nnoremap <F2> :TlistOpen<CR> 
+
+"" Clang complete
+let g:clang_user_options='|| exit 0' 
+let g:clang_use_library=1
+set completeopt=longest,menu
+
+"" Nerd Tree
+nnoremap <F1> :NERDTreeToggle<CR> 
 
 """ --- End of Plugin --- }}}
 

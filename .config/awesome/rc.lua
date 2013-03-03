@@ -244,9 +244,8 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "F12", function () awful.util.spawn("xscreensaver-command -lock") end),
-    awful.key({ modkey,           }, "e", function () awful.util.spawn_with_shell("emacs") end),
+    awful.key({ modkey,           }, "e", function () awful.util.spawn_with_shell("emacsclient -c") end),
     awful.key({ modkey,           }, "w", function () awful.util.spawn("firefox") end),
-    awful.key({ modkey }, "v", function () awful.util.spawn(terminal .. " -e vim") end),
  
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
@@ -459,6 +458,7 @@ awful.util.spawn_with_shell("wicd-client --tray &")
 awful.util.spawn_with_shell("(sleep 20 && dropboxd) &")
 awful.util.spawn_with_shell("xscreensaver -no-splash &")
 awful.util.spawn_with_shell("loliclip --daemon &")
+awful.util.spawn_with_shell("emacs --daemon")
 
 -- laptop
 awful.util.spawn_with_shell("batterymon &")

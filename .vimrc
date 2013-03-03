@@ -76,6 +76,14 @@ set completeopt=longest,menu
 
 "" Nerd Tree
 nnoremap <F1> :NERDTreeToggle<CR> 
+let g:NERDTreeDirArrows=0 " default have problem,so set it to use ASCI show
+
+"" miniBufExpl
+let g:miniBufExplMapWindowNavVim=1
+let g:miniBufExplMapWindowNavArrows=1
+let g:miniBufExplMapCTabSwitchBufs=1
+let g:miniBufExplModSelTarget=1
+
 
 """ --- End of Plugin --- }}}
 

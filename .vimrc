@@ -62,8 +62,6 @@ imap <C-b> <Left>
 imap <C-f> <Right>
 imap <C-a> <Home>
 imap <C-e> <End>
-" qucikfix window toggle
-nnoremap <leader>q :Qfix<CR>
 
 
 """ --- End of Base setting --- }}}
@@ -101,6 +99,8 @@ copen 10
 let g:qfix_win = bufnr("$")
 endif
 endfunction
+" qucikfix window toggle
+nnoremap <leader>q :Qfix<CR>
 """ --- End of Custom vim command --- }}}
 
 """ --- Test --- {{{

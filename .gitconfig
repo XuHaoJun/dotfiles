@@ -3,3 +3,7 @@
 	email = XuHaoJunTW@gmail.com
 [core]
 	editor = vim
+[diff]
+	tool = meld
+[merge]
+	tool = meld

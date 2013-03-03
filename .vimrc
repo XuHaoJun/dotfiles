@@ -62,6 +62,9 @@ imap <C-b> <Left>
 imap <C-f> <Right>
 imap <C-a> <Home>
 imap <C-e> <End>
+" qucikfix window toggle
+nnoremap <leader>q :Qfix<CR>
+
 
 """ --- End of Base setting --- }}}
 
@@ -84,8 +87,21 @@ let g:miniBufExplMapWindowNavArrows=1
 let g:miniBufExplMapCTabSwitchBufs=1
 let g:miniBufExplModSelTarget=1
 
-
 """ --- End of Plugin --- }}}
+
+""" --- Custom vim command --- {{{
+" QUICKFIX WINDOW
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+function! QFixToggle(forced)
+if exists("g:qfix_win") && a:forced == 0
+cclose
+unlet g:qfix_win
+else
+copen 10
+let g:qfix_win = bufnr("$")
+endif
+endfunction
+""" --- End of Custom vim command --- }}}
 
 """ --- Test --- {{{
 

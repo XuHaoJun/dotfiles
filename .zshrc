@@ -5,7 +5,6 @@ if [[ -d /opt/android-sdk/ ]]; then
     PATH="$PATH:/opt/android-sdk"
 fi
 
-
 ## var export
 # for tmux: export 256color
 [ -n "$TMUX" ] && export TERM=screen-256color
@@ -44,6 +43,10 @@ alias emacs='emacs --no-desktop -nw'
 alias rename='perl-rename'
 alias dstat='dstat -cdlmnpsy'
 #alias man='pinfo -m'
+
+function lt() { ls -ltrsa "$@" | tail; }
+function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }
+function fname() { find . -iname "*$@*"; }
 
 # -- }}}
 

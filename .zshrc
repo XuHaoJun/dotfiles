@@ -1,7 +1,7 @@
 # -- {{{ my settings
 #
 
-if [[ -d /opt/android-sdk/ ]]; then
+if [ -d /opt/android-sdk/ ]; then
     PATH="$PATH:/opt/android-sdk"
 fi
 
@@ -14,7 +14,6 @@ export EDITOR="vim"
 ## add highlighting for zsh; from AUR
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ## add cdargs config
-source $HOME/.zsh.d/cdargs.conf.zsh
 
 ## Options
 # zsh允许你仅仅敲入你要进入的文件夹的路径,而不用输入cd
@@ -372,3 +371,6 @@ do-cd-emacs() {
 }
 zle -N do-cd-emacs
 bindkey '\e[21~' do-cd-emacs #F10
+
+if [ -d $HOME/.zsh.d/ ]; then
+source $HOME/.zsh.d/cdargs.conf.zsh

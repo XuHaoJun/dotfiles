@@ -25,9 +25,9 @@ setopt extendedglob
 
 ## start from EMACS
 if [ -n "$INSIDE_EMACS" ]; then
-  chpwd() { print -P "\033AnSiTc %d" }
-  print -P "\033AnSiTu %n"
-  print -P "\033AnSiTc %d"
+    chpwd() { print -P "\033AnSiTc %d" }
+    print -P "\033AnSiTu %n"
+    print -P "\033AnSiTc %d"
 fi
 
 ## alias setting
@@ -60,9 +60,9 @@ autoload colors
 colors
 
 for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-eval _$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-eval $color='%{$fg[${(L)color}]%}'
-(( count = $count + 1 ))
+    eval _$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+    eval $color='%{$fg[${(L)color}]%}'
+    (( count = $count + 1 ))
 done
 FINISH="%{$terminfo[sgr0]%}"
 #}}}
@@ -72,14 +72,14 @@ FINISH="%{$terminfo[sgr0]%}"
 PROMPT=$(echo "  $BLUE%/ 
 ${RED}${EXITCODE} $CYAN%n $_YELLOW>>>$FINISH ")
 #}}}
-    
+
 #标题栏、任务栏样式{{{
 case $TERM in (*rxvt*|*xterm*|(dt|k|E)term)
-   #precmd () { print -Pn "\e]0;%n@%M//%/\a" }
-   #preexec () { print -Pn "\e]0;%n@%M//%/\ $1\a" }
-   precmd () { print -Pn "\e]0;%/\a" }
-   preexec () { print -Pn "\e]0;%/\ $1\a" }
-   ;;
+    #precmd () { print -Pn "\e]0;%n@%M//%/\a" }
+    #preexec () { print -Pn "\e]0;%n@%M//%/\ $1\a" }
+    precmd () { print -Pn "\e]0;%/\a" }
+    preexec () { print -Pn "\e]0;%/\ $1\a" }
+    ;;
 esac
 #}}}
 
@@ -111,14 +111,14 @@ cd() {
     builtin cd "$@"                             # do actual cd
     fc -W                                       # write current history  file
     local HISTDIR="$HOME/.zsh_history$PWD"      # use nested folders for history
-        if  [ ! -d "$HISTDIR" ] ; then          # create folder if needed
-            mkdir -p "$HISTDIR"
-        fi
-        export HISTFILE="$HISTDIR/zhistory"     # set new history file
+    if  [ ! -d "$HISTDIR" ] ; then          # create folder if needed
+        mkdir -p "$HISTDIR"
+    fi
+    export HISTFILE="$HISTDIR/zhistory"     # set new history file
     touch $HISTFILE
     local ohistsize=$HISTSIZE
-        HISTSIZE=0                              # Discard previous dir's history
-        HISTSIZE=$ohistsize                     # Prepare for new dir's history
+    HISTSIZE=0                              # Discard previous dir's history
+    HISTSIZE=$ohistsize                     # Prepare for new dir's history
     fc -R                                       #read from current histfile
 }
 mkdir -p $HOME/.zsh_history$PWD
@@ -126,13 +126,13 @@ export HISTFILE="$HOME/.zsh_history$PWD/zhistory"
 
 function allhistory { cat $(find $HOME/.zsh_history -name zhistory) }
 function convhistory {
-            sort $1 | uniq |
-            sed 's/^:\([ 0-9]*\):[0-9]*;\(.*\)/\1::::::\2/' |
-            awk -F"::::::" '{ $1=strftime("%Y-%m-%d %T",$1) "|"; print }'  
+sort $1 | uniq |
+sed 's/^:\([ 0-9]*\):[0-9]*;\(.*\)/\1::::::\2/' |
+awk -F"::::::" '{ $1=strftime("%Y-%m-%d %T",$1) "|"; print }'  
 }
 #使用 histall 命令查看全部历史纪录
 function histall { convhistory =(allhistory) |
-            sed '/^.\{20\} *cd/i\\' }
+sed '/^.\{20\} *cd/i\\' }
 #使用 hist 查看当前目录历史纪录
 function hist { convhistory $HISTFILE }
 
@@ -145,15 +145,15 @@ function top44 { allhistory | awk -F':[ 0-9]*:[0-9]*;' '{ $1="" ; print }' | sed
 #允许在交互模式中使用注释  例如：
 #cmd #这是注释
 setopt INTERACTIVE_COMMENTS      
-      
+
 #启用自动 cd，输入目录名回车进入目录
 #稍微有点混乱，不如 cd 补全实用
 #setopt AUTO_CD
-      
+
 #扩展路径
 #/v/c/p/p => /var/cache/pacman/pkg
 setopt complete_in_word
-      
+
 #禁用 core dumps
 limit coredumpsize 0
 
@@ -235,8 +235,8 @@ zstyle ':completion:*:-tilde-:*' group-order 'named-directories' 'path-directori
 ##行编辑高亮模式 {{{
 # Ctrl+@ 设置标记，标记和光标点之间为 region
 zle_highlight=(region:bg=magenta #选中区域 
-               special:bold      #特殊字符
-               isearch:underline)#搜索时使用的关键字
+special:bold      #特殊字符
+isearch:underline)#搜索时使用的关键字
 #}}}
 
 ##空行(光标在行首)补全 "cd " {{{
@@ -277,7 +277,7 @@ bindkey "\t" user-complete
 #定义快捷键为： [Esc] [Esc]
 #bindkey "\e\e" sudo-command-line
 #}}}
-  
+
 #命令别名 {{{
 #alias -g cp='cp -i'
 #alias -g mv='mv -i'
@@ -316,17 +316,17 @@ hash -d dl="$HOME/Dropbox/learn-web"
 ##for Emacs {{{
 #在 Emacs终端 中使用 Zsh 的一些设置 不推荐在 Emacs 中使用它
 if [[ "$TERM" == "dumb" ]]; then
-setopt No_zle
-PROMPT='%n@%M %/
->>'
-alias ls='ls -F'
+    setopt No_zle
+    PROMPT='%n@%M %/
+    >>'
+    alias ls='ls -F'
 fi 	
 #}}}
 
 #{{{自定义补全
 #补全 ping
 zstyle ':completion:*:ping:*' hosts 192.168.128.1{38,} www.g.cn \
-       192.168.{1,0}.1{{7..9},}
+    192.168.{1,0}.1{{7..9},}
 
 #补全 ssh scp sftp 等
 #my_accounts=(
@@ -339,16 +339,16 @@ zstyle ':completion:*:ping:*' hosts 192.168.128.1{38,} www.g.cn \
 
 #{{{ F1 计算器
 arith-eval-echo() {
-  LBUFFER="${LBUFFER}echo \$(( "
-  RBUFFER=" ))$RBUFFER"
+    LBUFFER="${LBUFFER}echo \$(( "
+    RBUFFER=" ))$RBUFFER"
 }
 zle -N arith-eval-echo
 bindkey "^[[11~" arith-eval-echo
 
 #{{{ F2 call
 arith-eval-call() {
-  LBUFFER="${LBUFFER}\$("
-  RBUFFER=")$RBUFFER"
+    LBUFFER="${LBUFFER}\$("
+    RBUFFER=")$RBUFFER"
 }
 zle -N arith-eval-call
 bindkey "^[[12~" arith-eval-call
@@ -366,11 +366,12 @@ function timeconv { date -d @$1 +"%Y-%m-%d %T" }
 
 
 do-cd-emacs() {
-       LBUFFER="cd $(cat ~/.emacs.d/current-directory)"
-       zle accept-line
+    LBUFFER="cd $(cat ~/.emacs.d/current-directory)"
+    zle accept-line
 }
 zle -N do-cd-emacs
 bindkey '\e[21~' do-cd-emacs #F10
 
 if [ -d $HOME/.zsh.d/ ]; then
-source $HOME/.zsh.d/cdargs.conf.zsh
+    source $HOME/.zsh.d/cdargs.conf.zsh
+fi

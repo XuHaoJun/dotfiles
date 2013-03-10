@@ -14,7 +14,7 @@ export EDITOR="vim"
 ## add highlighting for zsh; from AUR
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ## add cdargs config
-source ~/.zsh.d/cdargs.conf.zsh
+source $HOME/.zsh.d/cdargs.conf.zsh
 
 ## Options
 # zsh允许你仅仅敲入你要进入的文件夹的路径,而不用输入cd

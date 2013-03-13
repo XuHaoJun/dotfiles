@@ -1,8 +1,11 @@
 # -- {{{ my settings
 #
+export PATH=$PATH:/opt/java/bin:/opt/java/jre/bin
+export JAVA_HOME=${JAVA_HOME:-/opt/java}
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 
 if [ -d /opt/android-sdk/ ]; then
-    PATH="$PATH:/opt/android-sdk"
+    export PATH="$PATH:/opt/android-sdk"
 fi
 
 ## var export

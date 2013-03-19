@@ -246,6 +246,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "F12", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey,           }, "e", function () awful.util.spawn_with_shell("emacsclient -c") end),
     awful.key({ modkey,           }, "w", function () awful.util.spawn("firefox") end),
+    awful.key({ modkey,           }, "'", function () awful.util.spawn("terminator") end),
  
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),

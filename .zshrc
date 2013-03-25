@@ -4,6 +4,7 @@ export PATH=$PATH:/opt/java/bin:/opt/java/jre/bin
 export JAVA_HOME=${JAVA_HOME:-/opt/java}
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 export _JAVA_AWT_WM_NONREPARENTING=1
+wmname LG3D
 
 if [ -d /opt/android-sdk/ ]; then
     export PATH="$PATH:/opt/android-sdk"

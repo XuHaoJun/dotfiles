@@ -23,7 +23,6 @@ export QT_MODULE=fcitx
 export G_FILENAME_ENCODING=@utf8
 #export XIM_PROGRAM="fcitxn"
 export LC_CTYPE="zh_TW.utf8"
-fcitx&
 
 
 if [ -f $HOME/.Xmodmap ]; then
@@ -64,5 +63,13 @@ done
 # custom
 #exec ck-launch-session dbus-launch -exit-with-session awesome
 #exec ck-launch-session dbus-launch awesome
-exec dwm
+#trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 6 --transparent true --alpha 0 --tint 0x000000 --height 16 &
+#wicd-client --tray &
+#batti &
+(sleep 5 && dropboxd) &
+xscreensaver -no-splash &
+loliclip --daemon &
+emacs &
+fcitx &
+exec ~/.monsterwm.d/dzconky.sh
 #### end my settings

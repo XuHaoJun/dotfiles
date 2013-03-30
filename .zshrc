@@ -29,11 +29,11 @@ setopt CORRECT
 setopt extendedglob
 
 ## start from EMACS
-if [ -n "$INSIDE_EMACS" ]; then
-    chpwd() { print -P "\033AnSiTc %d" }
-    print -P "\033AnSiTu %n"
-    print -P "\033AnSiTc %d"
-fi
+#if [ -n "$INSIDE_EMACS" ]; then
+#    chpwd() { print -P "\033AnSiTc %d" }
+#    print -P "\033AnSiTu %n"
+#    print -P "\033AnSiTc %d"
+#fi
 
 ## alias setting
 alias pd='pushd'

@@ -16,5 +16,4 @@ add Control = Control_L
 ! for thinkpad x230i
 !
 !! print key to Super(window)
-keycode 105 = 
 add mod4 = Print 

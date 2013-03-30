@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-conky -c "$HOME/.monsterwm.d/.conkyrc" | dzen2 -h 18 -x 320 -ta r -e -p -fn "-*-terminus-*-r-normal-*-*-120-*-*-*-*-iso8859-*" &
+conky -c "$HOME/.monsterwm.d/.conkyrc" | dzen2 -h 18 -x 500 -ta r -e -p -fn "-*-terminus-*-r-normal-*-*-120-*-*-*-*-iso8859-*" &
 
 # create a fifo to send output
 ff="/tmp/monsterwm.fifo"
@@ -47,7 +47,7 @@ done
  
 # read from fifo and output to dzen2
 printf "%s%s\n" "$r" "$i" && unset r
-done < "$ff" | dzen2 -h 18 -w 430 -ta l -e -p -fn "-*-terminus-*-r-normal-*-*-120-*-*-*-*-iso8859-*" &
+done < "$ff" | dzen2 -h 18 -w 500 -ta l -e -p -fn "-*-terminus-*-r-normal-*-*-120-*-*-*-*-iso8859-*" &
  
 # pass output to fifo
 monsterwm > "$ff"

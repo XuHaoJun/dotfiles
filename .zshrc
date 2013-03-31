@@ -74,7 +74,7 @@ FINISH="%{$terminfo[sgr0]%}"
 
 #命令提示符 {{{
 #RPROMPT=$(echo "$RED%D %T$FINISH")
-PROMPT=$(echo "  $BLUE%/ 
+PROMPT=$(echo "  $CYAN%/ 
 ${RED}${EXITCODE} $CYAN%n $_YELLOW>>>$FINISH ")
 #}}}
 

@@ -6,4 +6,4 @@ total_run_times 0
 use_spacer none
  
 TEXT
-${battery_percent BAT0}%(BAT)  ::  ${loadavg 1 2 3}  ::  ${acpitemp}c  ::  $memperc% ($mem)  ::  ${time %a %b %d %I:%M%P}
+((BAT $battery)  (LOADAVG ${loadavg 1 2 3}) (MEM $memperc% $mem) (TEMP ${acpitemp}c) (${time %a %b %d %I:%M%P}))

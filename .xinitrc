@@ -71,5 +71,6 @@ xscreensaver -no-splash &
 loliclip --daemon &
 emacs &
 fcitx &
+xsetroot -cursor_name left_ptr
 exec ~/.monsterwm.d/dzconky.sh
 #### end my settings

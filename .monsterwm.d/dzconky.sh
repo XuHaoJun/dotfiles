@@ -22,7 +22,7 @@ IFS=':' read -r d w m c u <<< "$desktop"
 case $d in
 0) d="web" s="" ;;
 1) d="emacs" s="::" ;;
-2) d="term" s="::" ;;
+2) d="dev" s="::" ;;
 3) d="other" s="::" ;;
 esac
  

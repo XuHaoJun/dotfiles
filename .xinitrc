@@ -69,7 +69,7 @@ done
 (sleep 5 && dropboxd) &
 xscreensaver -no-splash &
 loliclip --daemon &
-emacs &
+#emacs &
 fcitx &
 xsetroot -cursor_name left_ptr
 exec ~/.monsterwm.d/dzconky.sh

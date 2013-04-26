@@ -52,20 +52,6 @@ style chrome://*#dactyl-statusline-field-commandline-command input {ime-mode: in
     set passkeys+='mail.google.com':jkucxarI\/,gi,gs,gt,gd,ga,gc,gb,gk,gl<CR>
 " -- }}}
 
-" -- {{{ Custom hint
-js <<EOF
-var selectors = ["a.l", "a[href^='#!topic/']", "div.links_main"];
-hints.addMode("test1", "Follow specfic hint", function (elem) buffer.followLink(elem), null, selectors);
-hints.addMode("test2", "Follow specfic hint in a background tab", function (elem) buffer.followLink(elem, dactyl.NEW_BACKGROUND_TAB), null, selectors);
-EOF
-group -locations www.google.com.tw,www.google.com,groups.google.com customHint
-nmap -builtin f ;test2
-nmap -builtin F g;test2
-group -locations groups.google.com customHintGoogleGroups
-nmap -builtin f ;test1
-group user
-" -- }}}
-
 " -- {{{ Normal keymappings
 "F2縮放menu bar
 map -modes=n,v <F2> -ex set go!=mT 

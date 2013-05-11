@@ -22,13 +22,13 @@ IFS=':' read -r d w m c u <<< "$desktop"
 case $d in
 0) d="web" s="" ;;
 1) d="emacs" s="::" ;;
-2) d="dev" s="::" ;;
+2) d="devel" s="::" ;;
 3) d="other" s="::" ;;
 esac
  
 # the current desktop color should be #d11783
 # we will also display the current desktop's tiling layout/mode
-((c)) && f="#d11783" && case $m in
+((c)) && f="#0088BB" && case $m in
 # name each layout/mode with a symbol
 0) i="[T]" ;;
 1) i="[M]" ;;

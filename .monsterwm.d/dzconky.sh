@@ -21,32 +21,32 @@ IFS=':' read -r d w m c u <<< "$desktop"
 # name each desktop
 case $d in
 0) d="web" s="" ;;
-1) d="emacs" s="::" ;;
-2) d="devel" s="::" ;;
-3) d="other" s="::" ;;
+1) d="emacs" s="" ;;
+2) d="devel" s="" ;;
+3) d="other" s="" ;;
 esac
  
 # the current desktop color should be #d11783
 # we will also display the current desktop's tiling layout/mode
 ((c)) && f="#0088BB" && case $m in
 # name each layout/mode with a symbol
-0) i="[T]" ;;
-1) i="[M]" ;;
-2) i="[B]" ;;
-3) i="[G]" ;;
-4) i="[F]" ;;
-esac || f="#5e7175"
+0) i="T" ;;
+1) i="M" ;;
+2) i="B" ;;
+3) i="G" ;;
+4) i="F" ;;
+esac || f="#999999"
  
 # if the desktop has an urgent hint its color should be #ff0000
 ((u)) && f="#ff0000"
  
 # if the desktop has windows print that number next to the desktop name
 # else just print the desktop name
-((w)) && r+="$s ^fg($f)$d [$w]^fg() " || r+="$s ^fg($f)$d^fg() "
+((w)) && r+="($s^fg($f)$d $w^fg()) " || r+="($s^fg($f)$d^fg()) "
 done
  
 # read from fifo and output to dzen2
-printf "%s%s\n" "$r" "$i" && unset r
+printf "(%s%s\n" "$r" "$i)" && unset r
 done < "$ff" | dzen2 -h 18 -w 500 -ta l -e -p -fn "-*-terminus-*-r-normal-*-*-120-*-*-*-*-iso8859-*" &
  
 # pass output to fifo

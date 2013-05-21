@@ -6,4 +6,4 @@ total_run_times 0
 use_spacer none
  
 TEXT
-((BAT $battery) (LOADAVG ${loadavg 1 2 3}) (MEM $memperc% $mem) (IP ${if_up enp0s25}${addr enp0s25}${endif}${if_up wlp3s0}${addr wlp3s0}${endif}) (${time %a %b %d %I:%M%P}))
+((BAT $battery) (LOADAVG ${loadavg 1 2 3}) (MEM $memperc% $mem) (IP ${if_existing /proc/net/route enp0s25}${addr enp0s25}${else}${if_existing /proc/net/route wlp3s0}${addr wlp3s0}${else}Not connected${endif}${endif}) (${time %a %b %d %I:%M%P}))

@@ -62,9 +62,18 @@ map -s -m n -b K <C-u>
 map -modes=normal -b -s j 4j
 map -modes=normal -b -s k 4k
 
-"" 左右控制tab
+"" tab control
 map -b -modes=normal h gT
 map -b -modes=normal l <C-n>
+
+map -b -modes=normal <C-a> g^
+map -b -modes=normal <C-e> g$
+
+map -b -modes=normal > -ex tabmove! +1
+map -b -modes=normal < -ex tabmove! -1
+
+map -b -modes=normal <A-a> -ex tabmove 1
+map -b -modes=normal <A-e> -ex tabmove $
 " -- }}}
 
 " -- {{{ Emacs keymapping
@@ -94,8 +103,8 @@ map -b -m i <C-n> <Down>
 map -b -m i <C-p> <Up>
 
 " Use C-a and C-e to go to the absolute left/right of the document
-map -b <C-a> 0
-map -b <C-e> $
+map -b -mode=insert <C-a> 0
+map -b -mode=insert <C-e> $
 "noremap <C-a> 0
 "noremap <C-e> $
 

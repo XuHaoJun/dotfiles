@@ -103,10 +103,8 @@ map -b -m i <C-n> <Down>
 map -b -m i <C-p> <Up>
 
 " Use C-a and C-e to go to the absolute left/right of the document
-map -b -mode=insert <C-a> 0
-map -b -mode=insert <C-e> $
-"noremap <C-a> 0
-"noremap <C-e> $
+map -mode=insert <C-a> <Home>
+map -mode=insert <C-e> <End>
 
 map -b -m i,c -s <C-f> <Right>
 map -b -m i,c -s <C-b> <Left>

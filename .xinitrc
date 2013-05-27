@@ -41,19 +41,6 @@ fi
 xset +dpms
 xset dpms 0 0 300
 
-#Thinkpad trackpoint middle button emulation
-xinput list | sed -ne 's/^[^ ][^V].*id=\([0-9]*\).*/\1/p' | while read id
-do
-    case `xinput list-props $id` in
-        *"Middle Button Emulation"*)
-            xinput set-int-prop $id "Evdev Wheel Emulation" 8 1
-            xinput set-int-prop $id "Evdev Wheel Emulation Button" 8 2
-            xinput set-int-prop $id "Evdev Wheel Emulation Timeout" 8 200
-            xinput set-int-prop $id "Evdev Wheel Emulation Axes" 8 6 7 4 5
-            xinput set-int-prop $id "Evdev Middle Button Emulation" 8 0
-            ;;
-    esac
-done
 
 # exec gnome-session
 # exec startkde
@@ -66,11 +53,13 @@ done
 #trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 6 --transparent true --alpha 0 --tint 0x000000 --height 16 &
 #wicd-client --tray &
 #batti &
+#emacs &
 (sleep 5 && dropboxd) &
 xscreensaver -no-splash &
 loliclip --daemon &
-#emacs &
+urxvtd -q -o -f
 fcitx &
 xsetroot -cursor_name left_ptr
+
 exec ~/.monsterwm.d/dzconky.sh
 #### end my settings

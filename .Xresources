@@ -39,7 +39,7 @@ URxvt.codeeditType:OverTheSpot
 
 !光标闪烁
 !
-URxvt.cursorBlink:True
+URxvt.cursorBlink:False
 
 ! open url 
 !

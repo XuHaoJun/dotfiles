@@ -54,10 +54,10 @@ xset dpms 0 0 300
 #wicd-client --tray &
 #batti &
 #emacs &
+urxvtd &
 (sleep 5 && dropboxd) &
 xscreensaver -no-splash &
 loliclip --daemon &
-urxvtd -q -o -f
 fcitx &
 xsetroot -cursor_name left_ptr
 

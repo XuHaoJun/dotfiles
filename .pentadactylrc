@@ -1,4 +1,7 @@
 " -- {{{ Options
+"" GUI
+set guioptions=CsnT
+
 "" Hide statusbar when using html5 fullscreen API
 au fullscreen on  set go-=s
 au fullscreen off set go+=s
@@ -8,9 +11,9 @@ set findcase=smart
 
 "" useful for command-line completion
 "" don't show autocomplete list until <Tab>
-set autocomplete=
-set hintmatching=wordstartswith
-set wildmode=list:longest,full
+"set autocomplete=
+"set hintmatching=wordstartswith
+"set wildmode=list:longest,full
 
 ""m{a-z,0-9}自动重建空白的记录文件。
 set sanitizeshutdown+=marks 
@@ -21,7 +24,6 @@ hi Hint font:bold 15px "Droid Sans Mono", monospace !important; margin:-.2ex; pa
 ""開啟時順便定位
 ""set editor="urxvt -e vim"
 set editor='urxvt -e vim -f -c ":set ft=bbcode" -c ":call cursor(<line>, <column>)" <file>'
-set guioptions=Csn
 
 "" Hint mode
 set hintkeys="asdfjkl;"

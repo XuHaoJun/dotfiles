@@ -54,7 +54,8 @@ style chrome://*#dactyl-statusline-field-commandline-command input {ime-mode: in
 
 " -- {{{ Normal keymappings
 "F2縮放menu bar
-map -modes=n,v <F2> -ex set go!=mT 
+map -modes=n,v <F2> -ex set go!=T 
+map -modes=n,v <A-F2> -ex set go!=mT 
 
 "" JK為tab切換, jk增加前繓7
 map -s -m n -b J <C-d>

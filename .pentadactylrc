@@ -1,5 +1,7 @@
 " -- {{{ Options
 set defsearch=duckduckgo
+loadplugins '\.(js|penta)$'
+group user
 
 "" GUI
 set guioptions=CsnT
@@ -45,7 +47,9 @@ style chrome://*#dactyl-statusline-field-commandline-command input {ime-mode: in
 " -- }}}
 
 " -- {{{ PassKeys
-    set passkeys+='duckduckgo.com':jkhvrsm!/<C-Enter>
+    set passkeys=
+    set passkeys+='duckduckgo.com':jk
+    "set passkeys+='duckduckgo.com':jkhvrsm!/<C-Enter>
     set passkeys+='facebook.com':<CR>
     set passkeys+='twitter.com':jk<Space>/.frtmn?ghrpu<Return>
     set passkeys+='www.tumblr.com':jkroae<CR>,gi

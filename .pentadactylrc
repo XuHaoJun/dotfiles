@@ -1,4 +1,6 @@
 " -- {{{ Options
+set defsearch=duckduckgo
+
 "" GUI
 set guioptions=CsnT
 

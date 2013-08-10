@@ -14,3 +14,6 @@
     status = auto
     branch = auto
     log = auto
+    ui = auto
+[alias]
+    s=status

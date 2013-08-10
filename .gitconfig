@@ -1,11 +1,16 @@
 [user]
-	name = XuHaoJun
-	email = XuHaoJunTW@gmail.com
+    name = XuHaoJun
+    email = XuHaoJunTW@gmail.com
 [core]
-	editor = vim
+    editor = vim
 [diff]
-	tool = meld
+    tool = meld
 [merge]
-	tool = meld
+    tool = meld
 [difftool]
-	prompt = false
+    prompt = false
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    log = auto

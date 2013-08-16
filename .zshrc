@@ -3,7 +3,7 @@ export PATH=$PATH:/opt/java/bin:/opt/java/jre/bin
 export JAVA_HOME=${JAVA_HOME:-/opt/java}
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 export _JAVA_AWT_WM_NONREPARENTING=1
-export GEM_HOME=$HOME/.gem/
+export GEM_HOME=/home/z4615/.gem/
 wmname LG3D
 
 if [ -d /opt/android-sdk/ ]; then
@@ -24,6 +24,7 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 alias rename='perl-rename'
 alias dstat='dstat -cdlmnpsy'
 alias -g l='ls -dF --color=auto'
+alias -g bdrake='bundle exec rake'
 
 function lt() { ls -ltrsa "$@" | tail; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }

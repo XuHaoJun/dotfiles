@@ -25,6 +25,7 @@ alias rename='perl-rename'
 alias dstat='dstat -cdlmnpsy'
 alias -g l='ls -dF --color=auto'
 alias -g bdrake='bundle exec rake'
+alias -g ee='emacsclient'
 
 function lt() { ls -ltrsa "$@" | tail; }
 function psgrep() { ps axuf | grep -v grep | grep "$@" -i --color=auto; }

@@ -41,6 +41,7 @@ fi
 xset +dpms
 xset dpms 0 0 300
 
+xset r rate 200 30
 
 # exec gnome-session
 # exec startkde

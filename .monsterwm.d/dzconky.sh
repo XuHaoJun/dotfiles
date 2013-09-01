@@ -21,9 +21,10 @@ IFS=':' read -r d w m c u <<< "$desktop"
 # name each desktop
 case $d in
 0) d="web" s="" ;;
-1) d="emacs" s="" ;;
-2) d="devel" s="" ;;
-3) d="other" s="" ;;
+1) d="ecs" s="" ;;
+2) d="dev" s="" ;;
+3) d="doc" s="" ;;
+4) d="otr" s="" ;;
 esac
  
 # the current desktop color should be #d11783

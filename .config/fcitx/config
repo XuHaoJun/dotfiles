@@ -54,7 +54,7 @@ TriggerKey=SHIFT_SPACE
 # Interval of Two Key Input
 #TimeInterval=250
 # Switching Virtual Keyboard
-VKSwitchKey=
+#VKSwitchKey=CTRL_ALT_B
 # Switching Remind Mode
 #RemindSwitchKey=
 # Switching Full Width Character Mode

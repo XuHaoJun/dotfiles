@@ -1,8 +1,6 @@
 # -- THEME AUTO-WRITTEN BY gtk-theme-switch2 DO NOT EDIT
-include "/usr/share/themes/Equinox Evolution/gtk-2.0/gtkrc"
+include "/usr/share/themes/Equinox Evolution Dusk/gtk-2.0/gtkrc"
 
 include "/home/z4615/.gtkrc-2.0.mine"
 
 # -- THEME AUTO-WRITTEN BY gtk-theme-switch2 DO NOT EDIT
-
-gtk-icon-theme-name = "faenza"

@@ -1,0 +1,9 @@
+/tmp/skeleton-1.blend
+/tmp/mago-cc.blend
+/tmp/fgc_skeleton.blend
+/tmp/LuckyBunny-3.blend
+/tmp/LuckyBunny-2.blend
+/home/z4615/study/3d/untitled.blend
+/tmp/mage_final.blend
+/tmp/skeleton.blend
+/tmp/LuckyBunny-1.blend

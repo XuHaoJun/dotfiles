@@ -282,7 +282,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git golang heroku sudo tmux)
+plugins=(git golang heroku sudo tmux lein)
 
 source $ZSH/oh-my-zsh.sh
 

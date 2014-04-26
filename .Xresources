@@ -10,7 +10,8 @@ URxvt.font:xft:文泉驿等宽正黑:size=10:style=Regular:antialias=true,xft:�
 URxvt.boldfont:xft:文泉驿等宽正黑:size=10:style=BOld:antialias=true,xft:文泉驿等宽正黑:size=9:style=Bold:antialias=true
 
 !! Set icon
-URxvt.iconFile:/usr/share/icons/gnome/22x22/apps/terminal.png
+!URxvt.iconFile:/usr/share/icons/gnome/22x22/apps/terminal.png
+URxvt*termName: rxvt
 
 
 !!滚动条
@@ -80,6 +81,6 @@ URxvt.depth:32
 URxvt*internalBorder:       false
 URxvt*externalBorder:       false
 URxvt*thickness:            0
-Urxvt*borderWidth:          0
+URxvt*borderWidth:          0
 URxvt*borderLess:            false
 

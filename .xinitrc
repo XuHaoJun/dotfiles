@@ -26,11 +26,11 @@ export LC_CTYPE="zh_TW.utf8"
 
 
 if [ -f $HOME/.Xmodmap ]; then
-    /usr/bin/xmodmap $HOME/.Xmodmap
+    /usr/bin/xmodmap $HOME/.Xmodmap 
 fi
 
 if [ -f $HOME/.Xresources ]; then
-    /usr/bin/xrdb $HOME/.Xresources
+    /usr/bin/xrdb -merge $HOME/.Xresources
 fi
 
 if [ -f $HOME/.xbindkeysrc ]; then
@@ -38,10 +38,11 @@ if [ -f $HOME/.xbindkeysrc ]; then
 fi
 
 # screen powersave
-xset +dpms
-xset dpms 0 0 300
+#xset +dpms
+#xset dpms 0 0 300
 
-xset r rate 200 30
+xset r rate 200 30 
+xsetroot -cursor_name left_ptr 
 
 # exec gnome-session
 # exec startkde
@@ -56,11 +57,10 @@ xset r rate 200 30
 #batti &
 #emacs &
 urxvtd &
-(sleep 5 && dropboxd) &
+(sleep 60 && dropbox start) &
 xscreensaver -no-splash &
-loliclip --daemon &
+xcmenu --daemon &
 fcitx &
-xsetroot -cursor_name left_ptr
 
-exec ~/.monsterwm.d/dzconky.sh
+exec monsterwm
 #### end my settings

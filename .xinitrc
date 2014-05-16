@@ -26,11 +26,11 @@ export LC_CTYPE="zh_TW.utf8"
 
 
 if [ -f $HOME/.Xmodmap ]; then
-    /usr/bin/xmodmap $HOME/.Xmodmap 
+    /usr/bin/xmodmap $HOME/.Xmodmap &
 fi
 
 if [ -f $HOME/.Xresources ]; then
-    /usr/bin/xrdb -merge $HOME/.Xresources
+    /usr/bin/xrdb $HOME/.Xresources
 fi
 
 if [ -f $HOME/.xbindkeysrc ]; then
@@ -56,10 +56,10 @@ xsetroot -cursor_name left_ptr
 #wicd-client --tray &
 #batti &
 #emacs &
+dropbox start &
+xcmenu --daemon
 urxvtd &
-(sleep 60 && dropbox start) &
 xscreensaver -no-splash &
-xcmenu --daemon &
 fcitx &
 
 exec monsterwm

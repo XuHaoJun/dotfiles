@@ -1,12 +1,106 @@
+# Path to your oh-my-zsh installation.
+ZSH=/usr/share/oh-my-zsh/
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+
+if [ "${TERM}x" = "eterm-colorx" ]
+then
+    ZSH_THEME="pygmalion"
+else
+    ZSH_THEME="af-magic"
+fi
+
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to disable command auto-correction.
+# DISABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git sudo lein ruby)
+#plugins=(git colored-man golang coffee heroku sudo tmux lein)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+#
+
+
+
+
+
+
+
+
+
+
+
+## my custom setting
 ## java envirement {{{
 #export PATH=$PATH:/opt/java/bin:/opt/java/jre/bin
 #export JAVA_HOME=${JAVA_HOME:-/opt/java}
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 #export _JAVA_AWT_WM_NONREPARENTING=1
-export GEM_HOME=$HOME/.gem/
-export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
 export GOPATH=$HOME/.gopkg:$HOME/study/go/cgss
 export PATH=$PATH:${GOPATH//://bin:}/bin
+export PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
+export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
 export LEJOS_NXT_JAVA_HOME=$JAVA_HOME
 export NXJ_HOME="/opt/lejos-nxj"
 #wmname LG3D
@@ -35,11 +129,11 @@ function fname() { find . -iname "*$@*"; }
 
 #关于历史纪录的配置 {{{
 #历史纪录条目数量
-export HISTSIZE=400000
+export HISTSIZE=2000
 #注销后保存的历史纪录条目数量
-export SAVEHIST=400000
+export SAVEHIST=2000
 #历史纪录文件
-#export HISTFILE=~/.zhistory
+export HISTFILE=~/.zhistory
 #以附加的方式写入历史纪录
 setopt INC_APPEND_HISTORY
 #如果连续输入的命令相同，历史纪录中只保留一个
@@ -224,88 +318,7 @@ zle -N arith-eval-echo
 bindkey "^[[11~" arith-eval-echo
 #}}}
 
+setopt extendedglob
 
-
-# Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh/
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-
-if [ "${TERM}x" = "eterm-colorx" ]
-then
-    ZSH_THEME="pygmalion"
-else
-    ZSH_THEME="af-magic"
-fi
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git golang heroku sudo tmux lein)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-#
 ## add highlighting for zsh; from AUR
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

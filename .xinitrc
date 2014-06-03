@@ -41,8 +41,8 @@ fi
 #xset +dpms
 #xset dpms 0 0 300
 
-xset r rate 200 30 
-xsetroot -cursor_name left_ptr 
+xset r rate 200 30
+xsetroot -cursor_name left_ptr
 
 # exec gnome-session
 # exec startkde
@@ -52,15 +52,13 @@ xsetroot -cursor_name left_ptr
 # custom
 #exec ck-launch-session dbus-launch -exit-with-session awesome
 #exec ck-launch-session dbus-launch awesome
-#trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 6 --transparent true --alpha 0 --tint 0x000000 --height 16 &
-#wicd-client --tray &
-#batti &
-#emacs &
-dropbox start &
+
+dropboxd &
 xcmenu --daemon
 urxvtd &
 xscreensaver -no-splash &
 fcitx &
+cbatticon &
 
-exec monsterwm
+exec awesome
 #### end my settings

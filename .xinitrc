@@ -53,12 +53,13 @@ xsetroot -cursor_name left_ptr
 #exec ck-launch-session dbus-launch -exit-with-session awesome
 #exec ck-launch-session dbus-launch awesome
 
+urxvtd -f -o -q
 dropboxd &
 xcmenu --daemon
-urxvtd &
 xscreensaver -no-splash &
-fcitx &
 cbatticon &
+fcitx &
+wicd-gtk -t &
 
 exec awesome
 #### end my settings

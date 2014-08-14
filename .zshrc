@@ -97,8 +97,13 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 #export JAVA_HOME=${JAVA_HOME:-/opt/java}
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 #export _JAVA_AWT_WM_NONREPARENTING=1
-export GOPATH=$HOME/.gopkg:$HOME/study/go/cgss
-export PATH=$PATH:${GOPATH//://bin:}/bin
+if [ -d $HOME/go/ ]; then
+  export GOROOT=$HOME/go
+fi
+export GOARCH=amd64
+export GOOS=linux
+export GOPATH=$HOME/.gopkg:$HOME/project/gotween:$HOME/project/daoproj
+export PATH=$PATH:${GOPATH//://bin:}/bin:$GOROOT/bin
 export PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
 export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
 export LEJOS_NXT_JAVA_HOME=$JAVA_HOME

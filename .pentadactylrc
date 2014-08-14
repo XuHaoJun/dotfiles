@@ -1,10 +1,11 @@
 " -- {{{ Options
+hi FontFixed -append font-size: 12pt !important;
 "set defsearch=google
 loadplugins '\.(js|penta)$'
 group user
 
 "" GUI
-set guioptions=CsnT
+set guioptions=Csn
 
 "" Hide statusbar when using html5 fullscreen API
 au fullscreen on  set go-=s
@@ -27,7 +28,7 @@ set scrollsteps=1
 set scrolltime=0
 
 ""m{a-z,0-9}自动重建空白的记录文件。
-set sanitizeshutdown+=marks 
+set sanitizeshutdown+=marks
 
 ""hint數字變大
 hi Hint font:bold 15px "Droid Sans Mono", monospace !important; margin:-.2ex; padding: 0 0 0 1px; outline:1px solid rgba(0, 0, 0, .5); background:rgba(255, 248, 231, .8); color:black; text-transform:uppercase;

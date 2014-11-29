@@ -55,6 +55,7 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 local layouts =
 {
+    awful.layout.suit.max,
     awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
@@ -64,7 +65,6 @@ local layouts =
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier
 }
@@ -274,7 +274,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- Custom Keys
-    awful.key({ modkey }, "e", function () awful.util.spawn("emacsclient -c") end),
+    awful.key({ modkey }, "e", function () awful.util.spawn("emacsclient -c") end)
 )
 
 clientkeys = awful.util.table.join(

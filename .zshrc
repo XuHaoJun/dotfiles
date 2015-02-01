@@ -5,7 +5,6 @@ ZSH=/usr/share/oh-my-zsh/
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-
 if [ "${TERM}x" = "eterm-colorx" ]
 then
     ZSH_THEME="pygmalion"
@@ -13,15 +12,11 @@ else
     ZSH_THEME="af-magic"
 fi
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -30,10 +25,10 @@ DISABLE_AUTO_UPDATE="true"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -54,15 +49,15 @@ DISABLE_AUTO_TITLE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git sudo lein ruby)
-#plugins=(git colored-man golang coffee heroku sudo tmux lein)
-
-source $ZSH/oh-my-zsh.sh
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git sudo)
 
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -79,12 +74,15 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
 #
-
-
-
-
-
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
 
@@ -100,7 +98,12 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export GOROOT=/usr/lib/go
 export GOARCH=amd64
 export GOOS=linux
-export GOPATH=$HOME/.gopkg:$HOME/project/gotween:$HOME/project/daoproj
+if [ -d $HOME/.gopkg ]; then
+    export GOPATH=$HOME/.gopkg
+else
+    mkdir $HOME/.gopkg
+    export GOPATH=$HOME/.gopkg
+fi
 export PATH=$PATH:${GOPATH//://bin:}/bin:$GOROOT/bin
 export PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
 export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
@@ -108,15 +111,12 @@ export LEJOS_NXT_JAVA_HOME=$JAVA_HOME
 export NXJ_HOME="/opt/lejos-nxj"
 #wmname LG3D
 
-if [ -d /opt/android-sdk/ ]; then
-    export PATH="$PATH:/opt/android-sdk"
-fi
 
 ## java envirement }}}
 
 ## var export
 export EDITOR="vim"
-export BROWSER="google-chrome-unstable"
+export BROWSER="google-chrome-stable"
 
 
 alias rename='perl-rename'
@@ -325,17 +325,13 @@ bindkey "^[[11~" arith-eval-echo
 setopt extendedglob
 
 ## add highlighting for zsh; from AUR
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
-export COCOS_CONSOLE_ROOT=/home/z4615/cocos2d-x/tools/cocos2d-console/bin
-export PATH=$COCOS_CONSOLE_ROOT:$PATH
+if [ -d /usr/share/zsh/plugins/zsh-syntax-highlighting/ ]; then
+    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # Add environment variable ANDROID_SDK_ROOT for cocos2d-x
-export ANDROID_SDK_ROOT=/opt/android-sdk
-export PATH=$ANDROID_SDK_ROOT:$PATH
-export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
-
-# Add environment variable ANT_ROOT for cocos2d-x
-export ANT_ROOT=/usr/bin
-export PATH=$ANT_ROOT:$PATH
+if [ -d /opt/android-sdk/ ]; then
+    export ANDROID_SDK_ROOT=/opt/android-sdk
+    export PATH=$ANDROID_SDK_ROOT:$PATH
+    export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+fi

@@ -14,7 +14,7 @@ fi
 #### start my settings
 export BROWSER=firefox
 
-#IBUS
+# input method
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export QT_IM_MODULE=fcitx
@@ -24,42 +24,45 @@ export G_FILENAME_ENCODING=@utf8
 #export XIM_PROGRAM="fcitxn"
 export LC_CTYPE="zh_TW.utf8"
 
-
-if [ -f $HOME/.Xmodmap ]; then
-    /usr/bin/xmodmap $HOME/.Xmodmap &
+if test -f $HOME/.Xmodmap && hash xmodmap 2>/dev/null; then
+    xmodmap $HOME/.Xmodmap
 fi
 
-if [ -f $HOME/.Xresources ]; then
-    /usr/bin/xrdb $HOME/.Xresources
+if test -f $HOME/.Xresources && hash xrdb 2>/dev/null; then
+    xrdb $HOME/.Xresources
 fi
 
-if [ -f $HOME/.xbindkeysrc ]; then
-    /usr/bin/xbindkeys -f $HOME/.xbindkeysrc
+if test -f $HOME/.xbindkeysrc && hash xbindkeys 2>/dev/null; then
+    xbindkeys -f $HOME/.xbindkeysrc
 fi
-
-# screen powersave
-#xset +dpms
-#xset dpms 0 0 300
 
 xset r rate 200 30
 xsetroot -cursor_name left_ptr
 
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
-
-# custom
-#exec ck-launch-session dbus-launch -exit-with-session awesome
-#exec ck-launch-session dbus-launch awesome
-
-urxvtd -f -o -q
-dropboxd &
-xcmenu --daemon
-xscreensaver -no-splash &
-cbatticon &
-fcitx &
-wicd-gtk -t &
+if hash urxvtd 2>/dev/null; then
+    urxvtd -f -o -q
+fi
+if hash dropboxd 2>/dev/null; then
+    dropboxd &
+fi
+if hash xcmenu 2>/dev/null; then
+    xcmenu --daemon
+fi
+if hash xscreensaver 2>/dev/null; then
+    xscreensaver -no-splash &
+    if hash lightsOn 2>/dev/null; then
+        lightsOn &
+    fi
+fi
+if hash cbatticon 2>/dev/null; then
+    cbatticon &
+fi
+if hash fcitx 2>/dev/null; then
+    fcitx -d
+fi
+if hash wicd-gtk 2>/dev/null; then
+    wicd-gtk -t &
+fi
 
 exec awesome
 #### end my settings

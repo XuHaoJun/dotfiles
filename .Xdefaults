@@ -1,0 +1,84 @@
+!!=============================================================================
+!! Xterm setting
+!!=============================================================================
+XTerm*Background: black
+XTerm*Foreground: white
+Xterm*termName: xterm-256color
+XTerm*locale: true
+XTerm*metaSendsEscape: true
+
+!!=============================================================================
+!! RXVT-unicode setting
+!!=============================================================================
+!!设置字体
+!
+!设置字体分辨率
+Xft.dpi:96
+!URxvt.font:-misc-fixed-medium-r-normal--14-*-*-*-*-*-iso10646-1,xft:WenQuanYi Bitmap Song:size=10
+URxvt.font:xft:文泉驿等宽正黑:size=10:style=Regular:antialias=true
+URxvt.boldfont:xft:文泉驿等宽正黑:size=10:style=BOld:antialias=true
+!! Set icon
+!URxvt.iconFile:/usr/share/icons/gnome/22x22/apps/terminal.png
+URxvt*termName: xterm
+!!滚动条
+!
+!Rxvt.scrollTtyOutput:True
+URxvt.scrollWithBuffer:True
+Rxvt.scrollTtyKeypress:True
+Rxvt.scrollBar:False
+Rxvt.scrollBar_right:True
+Rxvt.scrollBar_floating: False
+Rxvt.scrollstyle:plain
+!!屏幕缓冲
+!
+Rxvt.saveLines:10000
+Rxvt.menu:/etc/X11/rxvt.menu
+Rxvt.preeditType:Root
+Rxvt.transparency:255
+!输入法设置
+!
+URxvt.inputMethod:fcitx
+!輸入法樣式可選:Root(置底) OverTheSpot(跟隨)
+URxvt.codeeditType:OverTheSpot
+!URxvt.preeditType: OverTheSpot
+!光标闪烁
+!
+URxvt.cursorBlink:False
+! open url
+!
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/firefox
+URxvt.matcher.button: 1
+!颜色
+!
+!!! Default RXVT color: foreground = Black background = White
+!!! 0 1 2 3 4 5 6 7
+!!! Black Red3 Green3 Yellow3 Blue3 Magenta3 Cyan3 AntiqueWhite
+!!! 8 9 10 11 12 13 14 15
+!!! Gray25 Red Green Yellow Blue Magenta Cyan White
+URxvt.geometry:80x26+180+100
+Rxvt.foreground:white
+!URxvt.foreground:Gray
+!URxvt.background:Black
+!URxvt.background:rgba:0000/0000/0000/dddd
+URxvt.background:rgba:02f0/04f0/04f0/bbbb
+URxvt.colorBD:Gray95
+URxvt.colorUL:Green
+URxvt.cursorColor:Red2
+URxvt.color1:Red2
+!URxvt.color4:RoyalBlue
+URxvt.color4: #66A9B9
+URxvt.color5:Magenta2
+URxvt.color8:Gray50
+URxvt.color10:Green2
+URxvt.color12:DodgerBlue
+URxvt.color14:Cyan2
+URxvt.color15:Gray95
+URxvt.depth:32
+! broder
+!
+URxvt*internalBorder: false
+URxvt*externalBorder: false
+URxvt*thickness: 0
+URxvt*borderWidth: 0
+URxvt*borderLess: false

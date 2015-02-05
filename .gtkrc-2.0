@@ -1,6 +1,2 @@
-# -- THEME AUTO-WRITTEN BY gtk-theme-switch2 DO NOT EDIT
-include "/usr/share/themes/Equinox Evolution Dusk/gtk-2.0/gtkrc"
-
-include "/home/z4615/.gtkrc-2.0.mine"
-
-# -- THEME AUTO-WRITTEN BY gtk-theme-switch2 DO NOT EDIT
+include "/usr/share/themes/Adwaita/gtk-2.0/gtkrc"
+gtk-icon-theme-name = "HighContrast"

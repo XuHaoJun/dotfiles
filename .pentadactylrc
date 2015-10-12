@@ -5,7 +5,7 @@ loadplugins '\.(js|penta)$'
 group user
 
 "" GUI
-set guioptions=Csn
+set guioptions=CsnT
 
 "" Hide statusbar when using html5 fullscreen API
 au fullscreen on  set go-=s

@@ -42,27 +42,27 @@ xsetroot -cursor_name left_ptr
 if hash urxvtd 2>/dev/null; then
     urxvtd -f -o -q
 fi
-if hash dropboxd 2>/dev/null; then
-    dropboxd &
-fi
-if hash xcmenu 2>/dev/null; then
-    xcmenu --daemon
-fi
-if hash xscreensaver 2>/dev/null; then
-    xscreensaver -no-splash &
-    if hash lightsOn 2>/dev/null; then
-        lightsOn &
-    fi
-fi
+#if hash dropboxd 2>/dev/null; then
+#    dropboxd &
+#fi
+#if hash xcmenu 2>/dev/null; then
+#    xcmenu --daemon
+#fi
+#if hash xscreensaver 2>/dev/null; then
+#    xscreensaver -no-splash &
+#    if hash lightsonplus 2>/dev/null; then
+#        lightsonplus 900 &
+#    fi
+#fi
 if hash cbatticon 2>/dev/null; then
     cbatticon &
 fi
 if hash fcitx 2>/dev/null; then
     fcitx -d
 fi
-if hash wicd-gtk 2>/dev/null; then
-    wicd-gtk -t &
-fi
+#if hash wicd-gtk 2>/dev/null; then
+#    wicd-gtk -t &
+#fi
 
 exec awesome
 #### end my settings
